@@ -12,15 +12,26 @@ import SQLite3
 struct VibrantCardModifier: ViewModifier {
     func body(content: Content) -> some View {
        content
-            .frame(width: 350)
+            .frame(width: 300)
             .textFieldStyle(.roundedBorder)
-            .cornerRadius(4)
+            .cornerRadius(20)
             .fixedSize(horizontal: true, vertical: false)
+            .foregroundColor(Color.DWCOnyx)
     }
 }
 extension View {
     func vibrantCard() -> some View {
         self.modifier(VibrantCardModifier())
+    }
+}
+
+struct DWCButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color.DWCOnyx)
+            .foregroundStyle(Color.white)
+            .clipShape(Capsule())
     }
 }
 
@@ -53,38 +64,26 @@ func checkIsConnectedToNetworkd() {
 
 struct ContentView: View {
     
-    @State private var firstName = ""
-    @State private var lastName = ""
-    @State private var address = ""
-    @State private var phoneNumber = ""
-    @State private var email = ""
-    @State private var bank = ""
-    @State private var question2 = ""
-    @State private var question3 = ""
-    @State private var question4 = ""
-    @State private var question5 = ""
+    
     
     
     var body: some View {
-        VStack {
-            TextField("First Name", text: $firstName)
-                .vibrantCard()
-            TextField("Last Name", text: $lastName)
-                .vibrantCard()
-            TextField("Address", text: $address)
-                .vibrantCard()
-            TextField("Phone Number", text: $phoneNumber)
-                .vibrantCard()
-            TextField("Email", text: $email)
-                .vibrantCard()
-            TextField("Bank", text: $bank)
-                .vibrantCard()
-            
-            
-        }
-        .padding()
-        Button("Submit") {
-            checkIsConnectedToNetworkd()
+        NavigationStack {
+            ZStack {
+                Color.DWCGranite
+                    .ignoresSafeArea()
+                VStack {
+                    NavigationLink("Entrepreneur Credit BluePrint", destination: ECBPage())
+                    
+                    
+                }
+                .buttonStyle(DWCButton())
+                .padding()
+//                Button("Submit") {
+//                    checkIsConnectedToNetworkd()
+//                }
+//                .buttonStyle(DWCButton())
+            }
         }
     }
 }
