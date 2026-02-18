@@ -11,15 +11,31 @@ import SwiftUI
 struct Home: View {
     var body: some View {
         NavigationStack {
-            VStack {
-                NavigationLink(destination: ContentView()){
-                    Text("I'm a Membmer")
-                }
-                NavigationLink(destination: GuestSurvey()){
-                    Text("I'm New")
+            ZStack {
+                Color.DWCGreen
+                    .ignoresSafeArea()
+                VStack {
+                    
+                    Image("DWC Logo for SR")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height:300)
+                        .padding()
+                    NavigationLink(destination: ContentView()){
+                        Text("I'm a Member")
+                    }
+                    .buttonStyle(DWCButton())
+                    NavigationLink(destination: GuestView()){
+                        Text("I'm New")
+                    }
+                    .buttonStyle(DWCButton())
                 }
             }
         }
     }
+}
+
+#Preview {
+    Home()
 }
 //hi 1
