@@ -39,7 +39,8 @@ struct QuizView: View {
                         .font(.title)
                     Button("Submit") {
                         Task {
-                            await sendInfo()
+                          
+                            await sendInfo(userAnswers: viewModel.userAnswers)
                         }
                     }
                 }
@@ -47,12 +48,12 @@ struct QuizView: View {
         }
     }
 }
-func sendInfo() async {
-    guard let encoded = try? JSONEncoder().encode(Info) else {
+func sendInfo(userAnswers:[String]) async {
+    guard let encoded = try? JSONEncoder().encode(userAnswers) else {
         print("Failed to send info")
         return
     }
-    let url = URL(string: "https://reqres.in/api/cupcakes")!
+    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
     var request = URLRequest(url: url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     request.httpMethod = "POST"
@@ -60,7 +61,7 @@ func sendInfo() async {
     do {
         let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
         
-        let decodedInfo = try JSONDecoder().decode(Info.self, from: data)
+        let decodedInfo = try JSONDecoder().decode([String].self, from: data)
         
     } catch  {
         print("Failed to send Data: \(error.localizedDescription)")

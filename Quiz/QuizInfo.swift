@@ -14,6 +14,7 @@ class Info: Codable {
         case _quantity = "quantity"
         
         
+        
     }
     static let types = ["Yes","Kinda","No"]
     
@@ -28,3 +29,22 @@ class Info: Codable {
     }
     
 
+struct AnswerPayload: Codable {
+    let userId: String
+    let questionId: String
+    let answerText: String
+    let createdAt: Date
+}
+//
+//func sendAnswer(_answer: AnswerPayload) async throws {
+//    let url = URL(string: "api here")!
+//    var request = URLRequest(url: url)
+//    request.httpMethod = "POST"
+//    request.setValue("application/json", forHTTPHeaderField: <#T##String#>)
+//    request.httpBody = try JSONEncoder().encode(_answer)
+//    
+//    let (_, response) = try await URLSession.shared.data(for: request)
+//    guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+//        throw URLError(.badServerResponse)
+//    }
+//}
