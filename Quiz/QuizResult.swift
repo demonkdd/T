@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct QuizResult: View {
     let topic: Topic
@@ -22,5 +23,5 @@ struct QuizResult: View {
 }
 
 #Preview {
-    QuizResult(topic: <#Topic#>)
+    QuizResult(topic: testTopics[0])
 }
