@@ -29,9 +29,11 @@ struct DWCButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color.DWCOnyx)
+            .background(Color("ButtonColor1"))
             .foregroundStyle(Color.white)
-            .clipShape(Capsule())
+            .buttonBorderShape(.roundedRectangle(radius: 18))
+            .frame(width: 280, height: 65)
+            
     }
 }
 
@@ -70,7 +72,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.DWCGranite
+                Image("DWC Background EXP")
                     .ignoresSafeArea()
                 VStack {
                     NavigationLink("Entrepreneur Credit BluePrint", destination: ECBPage())

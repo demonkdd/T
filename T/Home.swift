@@ -12,15 +12,17 @@ struct Home: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.DWCGreen
+                Image("DWC Background EXP")
                     .ignoresSafeArea()
                 VStack {
                     
-                    Image("DWC Logo for SR")
+                    Image("DWCLogo")
                         .resizable()
                         .scaledToFit()
-                        .frame(height:300)
+                        .frame(width: 333,height:333)
                         .padding()
+                    Text("Welcome!")
+                    Text("Help Shape the Future of DWC")
                     NavigationLink(destination: ContentView()){
                         Text("I'm a Member")
                     }
