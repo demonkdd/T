@@ -11,7 +11,7 @@ struct ECBPage: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.DWCRed
+                Image("DWC Background EXP")
                     .ignoresSafeArea()
                 VStack {
                     NavigationLink("ECB Intro", destination: ECBQuizView())

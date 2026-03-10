@@ -16,20 +16,24 @@ struct ECBQuizView: View {
     @State private var testQuestions: [QuizQuestions] = []
     var body: some View {
         NavigationStack {
-            VStack {
-                Button("Take Quiz") {
-                    showingConfirmation = true
-                    vm.questions = testQuestions
-                }
-                .buttonStyle(DWCButton())
-                .confirmationDialog("Start Survey?", isPresented: $showingConfirmation) {
-                    NavigationLink("begin", destination: QuizView(topic: testTopics[0], viewModel: vm))
-                }
-                Button("Cancel", role: .cancel) { }
+            ZStack {
+                Image("DWC Background EXP")
+                    .ignoresSafeArea()
+                VStack {
+                    Button("Take Quiz") {
+                        showingConfirmation = true
+                        vm.questions = testQuestions
+                    }
                     .buttonStyle(DWCButton())
-            }
-            .onAppear {
-                testQuestions = QuizDatabase.getQuestions(for: testTopic)
+                    .confirmationDialog("Start Survey?", isPresented: $showingConfirmation) {
+                        NavigationLink("begin", destination: QuizView(topic: testTopics[0], viewModel: vm))
+                    }
+                    Button("Cancel", role: .cancel) { }
+                        .buttonStyle(DWCButton())
+                }
+                .onAppear {
+                    testQuestions = QuizDatabase.getQuestions(for: testTopic)
+                }
             }
         }
     }

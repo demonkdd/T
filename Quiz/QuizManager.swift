@@ -11,17 +11,21 @@ import Foundation
 struct QuizManagerView: View {
     @StateObject private var vm = QuizViewModel(questions: [])
     @State private var showingConfirmation = false
-    @State private var backgroundColor = Color.white
+    @State private var backgroundColor = Color.pink
     @State private var quiz: QuizQuestions?
     @State private var testTopic = Topic(name: "Intro")
     @State private var testQuestions: [QuizQuestions] = []
     var body: some View {
         NavigationStack {
-            VStack(spacing: 100) {
-                Image(systemName: "")
-                
-                
-                RoundedRectangle (cornerRadius: 20)
+            ZStack {
+                Image("DWC Background EXP")
+                    .ignoresSafeArea()
+                VStack(spacing: 100) {
+                    Image(systemName: "DWClogo2ndpage")
+                    
+                    
+                    RoundedRectangle (cornerRadius: 20)
+                }
             }
         }
     }

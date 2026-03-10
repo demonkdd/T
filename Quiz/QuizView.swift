@@ -13,38 +13,43 @@ struct QuizView: View {
     @ObservedObject var viewModel: QuizViewModel
     
     var body: some View {
-        VStack(spacing: 20) {
-            if !viewModel.isCompleted {
-                Text("Question \(viewModel.currentQuestionIndex + 1) of \(viewModel.questions.count)")
-                    .font(.headline)
-                Text(viewModel.questions[viewModel.currentQuestionIndex].question)
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                
-                ForEach(viewModel.questions[viewModel.currentQuestionIndex].answers, id: \.self) { option in
-                    Button(action: {
-                        viewModel.answerQuestion(with: option)
-                    }) {
-                        Text(option)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .cornerRadius(10)
+        ZStack {
+            Image("DWC Background EXP")
+                .ignoresSafeArea()
+            VStack(spacing: 20) {
+                if !viewModel.isCompleted {
+                    Text("Question \(viewModel.currentQuestionIndex + 1) of \(viewModel.questions.count)")
+                        .font(.headline)
+                    Text(viewModel.questions[viewModel.currentQuestionIndex].question)
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+                    
+                    ForEach(viewModel.questions[viewModel.currentQuestionIndex].answers, id: \.self) { option in
+                        Button(action: {
+                            viewModel.answerQuestion(with: option)
+                        }) {
+                            Text(option)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .cornerRadius(10)
+                            
+                        }
                         
                     }
-                    
-                }
-            } else {
-                VStack {
-                    Text("Quiz Complete!")
-                        .font(.title)
-                    Button("Submit") {
-                        Task {
-                          
-                            await sendInfo(userAnswers: viewModel.userAnswers)
+                } else {
+                    VStack {
+                        Text("Quiz Complete!")
+                            .font(.title)
+                        Button("Submit") {
+                            Task {
+                                
+                                await sendInfo(userAnswers: viewModel.userAnswers)
+                            }
                         }
                     }
                 }
             }
+            .buttonStyle(DWCButton())
         }
     }
 }
