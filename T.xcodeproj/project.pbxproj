@@ -29,6 +29,19 @@
 		690A8FAA2EB0EB8A00CA018F /* TUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		692F14DB2F7D6674000CE006 /* Exceptions for "CreditCompanion" folder in "T" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CCFinalQuizView.swift,
+				CCIntroQuizView.swift,
+				CCMidQuizView.swift,
+				CCPage.swift,
+			);
+			target = 690A8F922EB0EB8A00CA018F /* T */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		690A8F952EB0EB8A00CA018F /* T */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -43,6 +56,14 @@
 		690A8FAD2EB0EB8A00CA018F /* TUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TUITests;
+			sourceTree = "<group>";
+		};
+		692F14D02F7D64B2000CE006 /* CreditCompanion */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				692F14DB2F7D6674000CE006 /* Exceptions for "CreditCompanion" folder in "T" target */,
+			);
+			path = CreditCompanion;
 			sourceTree = "<group>";
 		};
 		698B4D552EF044E9006475FC /* Quiz */ = {
@@ -87,6 +108,7 @@
 			children = (
 				690A8F952EB0EB8A00CA018F /* T */,
 				699FDE612F211205005BEADE /* ECB */,
+				692F14D02F7D64B2000CE006 /* CreditCompanion */,
 				698B4D552EF044E9006475FC /* Quiz */,
 				690A8FA32EB0EB8A00CA018F /* TTests */,
 				690A8FAD2EB0EB8A00CA018F /* TUITests */,
@@ -154,6 +176,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				690A8FA32EB0EB8A00CA018F /* TTests */,
+				692F14D02F7D64B2000CE006 /* CreditCompanion */,
 			);
 			name = TTests;
 			packageProductDependencies = (
