@@ -77,7 +77,7 @@ struct ContentView: View {
                 VStack {
                     NavigationLink("Entrepreneur Credit BluePrint", destination: ECBPage())
                     
-                    
+                    NavigationLink("Credit Compass", destination: CCPage())
                 }
                 .buttonStyle(DWCButton())
                 .padding()

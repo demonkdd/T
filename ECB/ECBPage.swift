@@ -15,6 +15,10 @@ struct ECBPage: View {
                     .ignoresSafeArea()
                 VStack {
                     NavigationLink("ECB Intro", destination: ECBQuizView())
+                    
+                    NavigationLink("ECB Mid", destination: ECBMidQuizView())
+                    
+                    NavigationLink("ECB Final", destination: ECBFinalQuizView())
                 }
                 .buttonStyle(DWCButton())
             }
